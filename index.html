@@ -742,11 +742,11 @@
 
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      mostrarToast('Dados enviados! Redirecionando para o pagamento...');
+      mostrarToast('Dados enviados! Redirecionando...');
       setTimeout(() => {
         fecharModal();
-        window.open(LINKS_MP[produtoAtual], '_blank');
         form.reset();
+        window.location.href = 'obrigado.html?produto=' + produtoAtual;
       }, 1800);
     } catch (err) {
       mostrarToast('Erro ao enviar. Tente novamente.', true);
